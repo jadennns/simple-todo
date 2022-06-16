@@ -24,7 +24,7 @@ export default function Home() {
             <GradientButton
               from="from-indigo-500"
               via="via-purple-500"
-              to="to-pink-700"
+              to="to-pink -700"
               redirect="/dashboard"
               className="text-white py-2 px-5 rounded-md trans-grow"
             >

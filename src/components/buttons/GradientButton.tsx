@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ReactNode } from "react";
+import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from "react";
 
 interface GradientButtonProps {
   from: string;
@@ -19,12 +19,18 @@ export default function GradientButton({
   children,
   redirect,
   onClick,
-}: GradientButtonProps) {
+  disabled,
+}: GradientButtonProps &
+  DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  >) {
   return redirect ? (
     <Link href={redirect}>
       <button
         className={`${className} bg-gradient-to-r ${from} ${via} ${to}`}
         onClick={onClick ? onClick : () => {}}
+        disabled={disabled}
       >
         {children}
       </button>
@@ -33,6 +39,7 @@ export default function GradientButton({
     <button
       className={`${className} bg-gradient-to-r ${from} ${via} ${to}`}
       onClick={onClick ? onClick : () => {}}
+      disabled={disabled}
     >
       {children}
     </button>
